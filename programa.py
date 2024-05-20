@@ -22,7 +22,7 @@ class programa:
 
     def buscarTodos(self):
 
-        return "TO DO: Tengo que buscar los registros de la tabla"
+        return render_template('mostrarTodos.html', estudiantes=Estudiante.query.all())
 
     def agregar(self):            #Agregar una funcionalidad
 
