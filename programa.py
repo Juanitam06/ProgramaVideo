@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 class programa:
 
@@ -13,7 +13,7 @@ class programa:
 
 
     def agregar(self):            #Agregar una funcionalidad
-        return "Hola mundo Flask"
+        return render_template('nuevoEstudiante.html')   #Construir una respuesta a partir de un objeto HTML
 
 
 
