@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from db import db
 from Estudiantes import Estudiante
 
@@ -20,6 +20,9 @@ class programa:
             db.create_all()        #"Llamar" a la base de datos
             self.app.run(debug=True)
 
+    def buscarTodos(self):
+
+        return "TO DO: Tengo que buscar los registros de la tabla"
 
     def agregar(self):            #Agregar una funcionalidad
 
@@ -34,8 +37,12 @@ class programa:
             miEstudiante= Estudiante(nombre, email, codigo)
 
         #Guardar el objeto en la base de datos db
-        db.session.add(miEstudiante)
-        db.session.commit()
+            db.session.add(miEstudiante)
+            db.session.commit()
+
+            return redirect(url_for('buscarTodos'))
+
+
 
         return render_template('nuevoEstudiante.html')   #Construir una respuesta a partir de un objeto HTML
 
